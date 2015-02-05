@@ -1,5 +1,9 @@
 # BITIC-PROYECTO-WEB-1-2015-1
 
-Repositorio clase de Proyecto Web 1
+Organización de este repositorio
 
-EJEMPLO DE MODIFICACION
+- Laboratorios/
+- Ejemplos/
+
+Por favor revisen los commits de Github para ir viendo el historial de los cambios que vamos agregando en cada directorio
+
