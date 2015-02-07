@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body div {
+            border: 5px black dotted;
+
+        }
+
+        #contenedor {
+            min-height: 100px;
+            min-width: 100px;
+        }
+
+        #lists li.elementoLista {
+
+        }
+
+        .cajaCheckbox {
+            border: 2px red solid;
+            max-width: 150px;
+            max-height: 75px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+            .cajaCheckbox ul{
+                list-style: none;
+                padding-left: 0px;
+                margin-top: 0px;
+            }
+            .cajaCheckbox li{
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+    <div id="contenedor"> Texto dentro del div
+        <br/>
+        <ul id="lists" class="listaLi">
+            <li class="elementoLista"></li>
+        </ul>
+    </div>
+
+    <div class="cajaCheckbox">
+        <ul>
+            <li><input name="pcType" type="checkbox" value="intel-i7">Intel i7</li>
+            <li><input name="pcType" type="checkbox" value="intel-i7">Intel i7</li>
+            <li><input name="pcType" type="checkbox" value="intel-i7">Intel i7</li>
+            <li><input name="pcType" type="checkbox" value="intel-i7">Intel i7</li>
+            <li><input name="pcType" type="checkbox" value="intel-i7">Intel i7</li>
+            <li><input name="pcType" type="checkbox" value="intel-i7">Intel i7</li>
+            <li><input name="pcType" type="checkbox" value="intel-i7">Intel i7</li>
+        </ul>
+    </div>
+
+</body>
+</html>
