@@ -2,9 +2,11 @@
 session_start();
 var_dump($_SESSION);
 require_once("lib/UtilidadesSesion.php");
+require_once("lib/ConectorDatos.php");
 
 //revisamos sesion activa
 UtilidadesSesion::revisarSesionActiva();
+$aTelefonos = ConectorDatos::buscarProductos();
 
 
 ?>
@@ -21,6 +23,13 @@ UtilidadesSesion::revisarSesionActiva();
         <div id="header">
             Bienvenido <?php echo $_SESSION['nombreCompleto']; ?>
         </div>
-
+        <div id="productos">
+            <ul class="telefonoEspecifico">
+                <li>Marca:</li>
+                <li>Modelo:</li>
+                <li>Precio:</li>
+                <li></li>
+            </ul>
+        </div>
     </body>
 </html>
