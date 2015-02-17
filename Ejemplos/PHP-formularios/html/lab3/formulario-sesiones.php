@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('lib/UtilidadesSesion.php');
 $arrAuth=array(
     "usuario" => "cperez",
     "password" => "123",
@@ -9,25 +10,36 @@ $arrAuth=array(
 
 //nombreUsuario y clave
 //== === != !==
+$bHayError = false;
+$sMensajeError = '';
+if( array_key_exists('nosession',$_GET) ) {
+    $bHayError = true;
+    $sMensajeError .= '<br/>Necesita autenticar al usuario';
+}
 
 //que $_POST exista
-$bHayError = false;
-$errorUsuarioIncorrecto = 'Usuario o clave incorrectas.';
+
+
 if ($_POST) {
     //nombre usuario exista
     if( $arrAuth['usuario'] === $_POST['nombreUsuario']) {
         //clave exista
         if( $arrAuth['password'] === $_POST['clave'] ) {
-            $_SESSION['nombreCompleto'] = $arrAuth['nombreCompleto'];
-            $_SESSION['edad'] = $arrAuth['edad'];
-            header("Location:paginaexito.php");
+            UtilidadesSesion::guardarEnSesion('nombreCompleto',$arrAuth['nombreCompleto']);
+            UtilidadesSesion::guardarEnSesion('edad',$arrAuth['edad']);
+
+            header("Location:productos.php");
         } else {
+            $sMensajeError .= '<br/>Usuario o clave incorrectas.';
             $bHayError = true;
         }
     } else {
+        $sMensajeError .= '<br/>Usuario o clave incorrectas.';
         $bHayError = true;
     }
 }
+
+
 
 if($_POST) {
     echo 'imprimiendo POST';
@@ -70,7 +82,7 @@ if($_POST) {
             <input type="password" name="clave" id="clave">
         </li>
         <li>
-            <span class="mensajeError" ><?php if($bHayError) { echo $errorUsuarioIncorrecto; } ?></span>
+            <span class="mensajeError" ><?php if($bHayError) { echo $sMensajeError; } ?></span>
             <br/>
             <input type="submit" id="enviarDatos" name="enviarDatos">
         </li>
