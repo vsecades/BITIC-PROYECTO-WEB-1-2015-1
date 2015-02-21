@@ -1,7 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: estudiante
- * Date: 16/02/15
- * Time: 07:21 PM
- */
+session_start();
+var_dump($_SESSION);
+
+?>
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <style>
+            div { border: solid 1px grey;padding: 5px;}
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            Bienvenido <?php echo $_SESSION['nombreCompleto']; ?>
+        </div>
+        <div id="productosDeCarrito">
+
+        </div>
+    </body>
+</html>
