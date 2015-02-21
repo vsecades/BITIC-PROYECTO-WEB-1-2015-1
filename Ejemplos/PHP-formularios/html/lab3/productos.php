@@ -24,12 +24,22 @@ $aTelefonos = ConectorDatos::buscarProductos();
             Bienvenido <?php echo $_SESSION['nombreCompleto']; ?>
         </div>
         <div id="productos">
-            <ul class="telefonoEspecifico">
-                <li>Marca:</li>
-                <li>Modelo:</li>
-                <li>Precio:</li>
-                <li></li>
-            </ul>
+            <?php
+                foreach($aTelefonos as $sMarca=>$aProductosMarca) {
+                    foreach($aProductosMarca as $sModelo=>$fPrecio) {
+                    ?>
+
+                    <ul class="telefonoEspecifico">
+                        <li>Marca:<?php echo $sMarca; ?></li>
+                        <li>Modelo: <?php echo $sModelo; ?></li>
+                        <li>Precio: <?php echo $fPrecio; ?></li>
+                        <li></li>
+                    </ul>
+                <?php
+                    }
+                }
+            ?>
+
         </div>
     </body>
 </html>
