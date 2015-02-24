@@ -29,6 +29,26 @@ class Carrito {
 
     }
 
+    /**
+     * Retorna itemes de carro en el SESSION
+     * @return array Itemes carro
+     */
+    function listadoItemesCarrito() {
+        $aCarrito = $_SESSION['carrito'];
+        // id, modelo, marca, precio
+        $aItemesCarro = array();
+
+        //construye itemes de carro
+        foreach($aCarrito as $idModeloTelefono => $sCantidadModelo) {
+            $aProducto = ConectorDatos::buscarProductoEspecifico($idModeloTelefono);
+            $aProducto['cantidad'] = $sCantidadModelo;
+            $aItemesCarro[] = $aProducto;
+        }
+
+        return $aItemesCarro;
+
+    }
+
     function revisarCarrito() {
         if(array_key_exists('carrito',$_SESSION) === false){
             $_SESSION['carrito']=array();
