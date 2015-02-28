@@ -31,6 +31,7 @@ if($_POST) {
         <div id="header">
             Bienvenido <?php echo $_SESSION['nombreCompleto']; ?>
         </div>
+        <div><?php include('menu.php'); ?></div>
         <div id="productos">
             <?php
                 foreach($aTelefonos as $sMarca=>$aProductosMarca) {
